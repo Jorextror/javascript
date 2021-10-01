@@ -1,13 +1,18 @@
-/*Fes una funció en javascript que retorni el nombre de vegades que un determinat caràcter apareix en un string.*/
+/*Fes una funció en javascript que retorni el nombre de vegades que un determinat 
+caràcter apareix en un string.*/
+
+string="una funció en javascript que retorni el nombre de vegades";
 
 function vega(nombre, string) {
-    let con=0;
-    for (let i = 0; i < string; i++) {
-        if (nombre==i) {
-            con+=1;
-        }
-    }
-    return con;
+    lens=string.length
+    =string.split(nombre).join("")
+    stri=string.length
+    console.log(string)
+    console.log(lens)
+    console.log(stri)
+    return lens-stri
+
 }
 
-console.log(vega(a,"una funció en javascript"));
+console.log(vega("e","pepepe"));
+
