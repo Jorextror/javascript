@@ -10,11 +10,11 @@ let any=[2021]
 
 function datesJS(nombres,mes,any) {
     let ll= []
-    for (let i = 0; i < nombres; i++) {
-        ll.join(i);
+    for (let i = 0; i < nombres.length; i++) {
+        let dia=nombres[i];
+        ll.push(dia+"-"+mes+"-"+any)
     }
-    ll.join(mes);
-    ll.join(any);
-    console.log(ll);
+    console.log(ll)
+
 }
-console.log(datesJS(nombres,mes,any));
+datesJS(nombres,mes,any);

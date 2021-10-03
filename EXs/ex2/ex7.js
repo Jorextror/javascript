@@ -5,13 +5,9 @@ string="una funció en javascript que retorni el nombre de vegades";
 
 function vega(nombre, string) {
     lens=string.length
-    =string.split(nombre).join("")
-    stri=string.length
-    console.log(string)
-    console.log(lens)
-    console.log(stri)
+    paraules=string.split(nombre).join("")
+    stri=paraules.length
     return lens-stri
-
 }
 
 console.log(vega("e","pepepe"));
