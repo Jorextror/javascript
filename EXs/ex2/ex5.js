@@ -5,7 +5,8 @@ let a="retorna la paraula més llarga";
 function long(a) {
     ll=" ";
     a.split(" ");
-    for (let i = 0; i < a; i++) {
+    for (let i = 0; i < a.length; i++) {
+        const element = paraula+i;
         console.log(i);
         if (ll.length < i.length) {
             ll=a;
