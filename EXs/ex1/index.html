@@ -76,9 +76,9 @@
             do {
                 num1=prompt("Inserta un numero entre 1 al 10: ");
 
-            } while (num1 < 1 || num1 > 10);
+            } while (num1 < 1 || num1 > 10 && isNaN(num));
 
-            document.write("Taula de multiplicar del ",num1)
+            document.write("Taula de multiplicar del ",num1,"<br>")
             for (let i = 0; i < 11; i++) {
                 document.write(num1," X " ,i," = ", num1*i ,"<br>")                
             }
@@ -87,34 +87,34 @@
         function ex6() {
             console.log('ex6');
             let num1,op
+            
             num1=prompt("Inserta un numero ");
             num2=prompt("Inserta un numero ");
             op=prompt("Operacio per realitzar(+ - * / %) ");
+            
             num1=Number(num1)
             num2=Number(num2)
 
             if (op=="+") {
-                alert("El resultat es",num1," + ", num2, " = " ,num1+num2)
+                alert("El resultat es "+(num1+num2))
             } else if (op=="-") {
-                alert("El resultat es",num1-num2)
+                alert("El resultat es "+(num1-num2))
             } else if (op=="*") {
-                alert("El resultat es", num1*num2)
+                alert("El resultat es "+(num1*num2))
             } else if (op=="/") {
-                alert("El resultat es", num1/num2)
+                alert("El resultat es "+(num1/num2))
             } else if (op=="%") {
-                alert("El resultat es", num1%num2)
+                alert("El resultat es "+(num1%num2))
             } else {
                 alert("Tenias que ha ver puesto un solo signo de los mostrados")
             }
-
         }
         </script>
-
-
 
     </head>
     <body>
         <h1>Javascript Ex1</h1>
+        <h3>Jordi Oliveda</h3>
         <button onclick="ex1()">Pregunta 1</button>
         <button onclick="ex2()">Pregunta 2</button>
         <button onclick="ex3()">Pregunta 3</button>
