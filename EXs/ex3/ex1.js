@@ -22,7 +22,7 @@ function arrays2(array) {
 }
 
 function arrays3(arrays) {
-    return array==arrays
+    return IsArray(arrays);
 }
 
 function arrays4(arrays, n="") {
