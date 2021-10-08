@@ -94,9 +94,15 @@ function arrays7() {
         arr.push(num);
     }
     // 2.
-    arr.forEach(element => {
-        console.log(element)
-    });
+    function mostrar(arr) {
+        
+        arr.forEach(element => {
+            console.log(element)
+        });
+    }
+    console.log(mostrar(arr));
+
+    
 }
 // console.log(arrays1(5,"b"))
 
