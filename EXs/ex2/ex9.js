@@ -10,7 +10,6 @@ function DniLl(dni){
     //letra correcta dependiendo del numero
     var letra=['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E', 'T']
     var letraC = letra[numero % 23];
-    console.log(letraC)
 
     if (letr.toUpperCase() != letraC) {
         return -1
