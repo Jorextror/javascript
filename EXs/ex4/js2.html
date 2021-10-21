@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>JS DOM paragraph style</title>
+</head> 
+<body>
+<h3>JavaScript Exercices</h3> 
+<p>paràgraf 1</p> 
+<p>paràgraf 2</p> 
+<p>paràgraf 3</p> 
+<p>paràgraf 4</p> 
+
+<script>
+var paragraf = document.getElementsByTagName("p");
+var color = ["green","red","blue","yellow"];
+
+for(let i = 0; i < paragraf.length; i++){
+    paragraf[i].style.backgroundColor = color[i];
+};
+
+
+</script>
+
+</body>
+</html>
