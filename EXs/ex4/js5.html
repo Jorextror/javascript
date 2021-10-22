@@ -9,7 +9,7 @@
 
 </head>
 <body>
-<p>
+<p id="p">
 Lorem Ipsum és un text de farciment usat per la indústria de la tipografia i la impremta. Lorem Ipsum ha estat el text estàndard de la indústria des de l'any 1500, quan un impressor desconegut va fer servir una galerada de text i la va mesclar per crear un llibre de mostres tipogràfiques. No només ha sobreviscut cinc segles, sinó que ha fet el salt cap a la creació de tipus de lletra electrònics, romanent essencialment sense canvis. Es va popularitzar l'any 1960 amb el llançament de fulls Letraset que contenien passatges de Lorem Ipsum, i més recentment amb programari d'autoedició com Aldus Pagemaker que inclou versions de Lorem Ipsum.
 
 </p>
@@ -18,19 +18,18 @@ Lorem Ipsum és un text de farciment usat per la indústria de la tipografia i l
 </form>
 
 <script>
-    var text = document.getElementsByName("p");
-    var cont = 0;
+
     function marca8() {
-        for (let i = 0; i < text.length; i++) {
-            if (text[i] != " "){
-                cont++;                    
-            }else{
-                if (cont >= 8){
-                    document.getElementsByTagName("text[i]").style.background-color = "yellow";
-                }
-                cont = 0;
-            }
+        var text = document.getElementById("p");
+        var letra = text.innerHTML.split(" ");
+
+        for (let i = 0; i < letra.length; i++) {
+            if (letra[i].length >= 8){
+                letra[i]= "<mark>"+letra[i]+"</mark>";
         }
+        }
+        let textmodificat = letra.join(" ");
+        text.innerHTML = textmodificat;
     }
 </script>
 </body>
