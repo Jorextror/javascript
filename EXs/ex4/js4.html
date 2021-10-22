@@ -30,10 +30,11 @@ columna:<input type="number" id="columna" value="columna">
 
 <script>
         function changeContent() {
-            var table = document.getElementById("unaTaula");
-            var texts = document.getElementById("text");
+            var texts = document.getElementById("text").value;
+            var fila = document.getElementById("fila").value;
+            var columna = document.getElementById("columna").value;
 
-            document.getElementById("myTable").changeContent(1);
+            document.getElementById("myTable").rows[fila].cells[columna].innerHTML = texts;
         }
 </script>
 </form></body></html>
