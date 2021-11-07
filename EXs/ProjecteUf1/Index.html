@@ -32,51 +32,90 @@ Utilitza estats per cada casella (tapada, destapada)-->
 
     <div style="width: 120px;"  id="taula"></div>
 
-    <button style="width: 105px" id="inici">Inici</button>
+    <button style="width: 105px" id="inici" onclick="inici()">Inici</button>
 
     <script>
-        //array parells aleatorio
-        var listado = Array("G", "L", "D", "R", "B", "I","G", "L", "D", "R", "B", "I");
-        var Total = listado.length;
-        var contingut =[];
-        for (let i=0; i < Total; i++) {
-            aleatorio = Math.floor(Math.random()*(listado.length));
-            contingut.push(listado[aleatorio]);
-            listado.splice(aleatorio, 1);
+        //llista mezclada
+        function randomlist(){
+            var listado = Array("G", "L", "D", "R", "B", "I","G", "L", "D", "R", "B", "I");
+            var Total = listado.length;
+            var contingut =[];
+            for (let i=0; i < Total; i++) {
+                aleatorio = Math.floor(Math.random()*(listado.length));
+                contingut.push(listado[aleatorio]);
+                listado.splice(aleatorio, 1);
+            }
+            //console.log(contingut);
+            return contingut;
         }
-        console.log(contingut);
-        //taula print
-        contingut.forEach(boto => {
+
+        let contingut=randomlist();
+        //imprimir
+        contingut.forEach((boto, i)=> {
             var para = document.createElement("button");
-            para.setAttribute("id","tapar");
+            para.setAttribute("id",i);
+            para.setAttribute("onclick","destapar("+i+")");
             var t = document.createTextNode("?");
             para.appendChild(t);
-            console.log(para);
+            //console.log(para);
             document.getElementById("taula").appendChild(para);
         });
-        //destapar
-        var input = document.getElementsByTagName("button");
-        for (let i = 0; i < input.length; i++) {
-            input[i].addEventListener("click",function(){
 
-            });
-
-        });
-
-        //Cuenta atras
+        //Reloj
         window.onload = updateClock;
-
         var totalTime = 60;
 
         function updateClock() {
-        document.getElementById('countdown').innerHTML = totalTime;
-        if(totalTime==0){
-            alert('Game Over');
-        }else{
-            totalTime-=1;
-            setTimeout("updateClock()",1000);
+            document.getElementById('countdown').innerHTML = totalTime;
+            if(totalTime==0){
+                alert('Game Over');
+            }else{
+                totalTime-=1;
+                setTimeout("updateClock()",1000);
+            }
         }
+
+        //Destapar
+        var clicks=0;
+        var clickats=[];
+        function destapar(id) {
+            if (!clickats.includes(id)){
+                clicks++;
+                clickats.push(id)
+            }
+            if (document.getElementById(id).textContent=="?") {
+                if (clicks<3) {
+                    document.getElementById(id).innerHTML=contingut[id]
+                }else{
+                    if (contingut[clickats[0]]!=contingut[clickats[1]]){
+                        document.getElementById(clickats[0]).innerHTML="?"
+                        document.getElementById(clickats[1]).innerHTML="?"
+                    }
+                    clickats=[];
+                    clicks=0;
+                }
+            }
+            FiPartida()
         }
+        //Si se a descubierto todas termina
+        function FiPartida() {
+            voltejat=0;
+            for (let i = 0; i < 11; i++) {
+                if (document.getElementById(i).textContent!="?") {
+                    voltejat++;
+                    if (voltejat==11) {
+                        alert("Ganaste")
+                    }
+                }
+                
+            }
+        }
+
+        //Reinicia la pagina
+        function inici() {
+            window.location.reload(true)
+        }
+
     </script>
 </body>
 </html>
