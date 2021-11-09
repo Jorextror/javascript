@@ -15,23 +15,31 @@ var constructora = function (marca,velocitat) {
     return `marca:${marca}, velocitat:${velocitat}`;
 }  
 
-var accelerar = function (velocitat){
-    console.log(`velocitat:${velocitat+10}`);
+var accelerar = function (cotxe){
+    return cotxe.velocitat = 10;
 }
 
-var fre = function (velocitat) {
+var fre = function (cotxe) {
     if (velocitat >= 5) {
-        console.log(`velocitat:${velocitat-5}`)
+        console.log(`velocitat:${cotxe.velocitat-5}`);
     }
-    console.log(`velocitat:${velocitat}`)
+    console.log(`velocitat:${cotxe.velocitat}`);
 }
 
 var cotxe ={
     marca: 'audi',
     velocitat: 80
 }
+
 var cotxe2 ={
     marca: 'peugeot',
     velocitat: 100
 }
-var cotxes = [cotxe, cotxe2]
+
+var cotxes = [cotxe, cotxe2];
+
+console.log(cotxe);
+
+console.log(accelerar(cotxe));
+
+console.log(accelerar(cotxe));
