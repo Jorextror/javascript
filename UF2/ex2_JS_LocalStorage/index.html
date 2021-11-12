@@ -1,0 +1,49 @@
+<!-- Fes un formulari per afegir títols de pel·lícules i que el llistat de títols surt al final, 
+    es desaran en el local storage com parelles key: titol, value: titol , i només cal que tingui en compte no desar strings buits, 
+    cal que comproveu que el navegador permet utilitzar aquesta funcionalitat. Afegiu en una llista: -->
+<!-- Un altre exercici: Crea un camp textarea que “autodesi” els seus valors en cada canvi 
+    (cada lletra premuda). Llavors, si l'usuari tanca accidentalment la pàgina i l'obre de nou, 
+    trobarà la seva entrada inacabada al seu lloc. -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LocalStorage</title>
+</head>
+<body>
+    <h1>Títols de Pel·licules</h1>
+    <form action="index.html" method="post">
+        <input type="text" name="titol" id="titol">
+        <input onclick="Inp()" type="submit" value="Desar">
+    </form>
+    <h3>Pelicules afegides</h3>
+    <div id="llista" ></div>
+</body>
+<script>
+    // function Inp() {
+        var titols=[];
+        //compatibilitat browser
+        if (typeof(Storage) !== "undefined"){
+            console.log("Local Storage disponible");
+            //obtener el input
+            var valor = document.getElementById("titol").value
+            console.log(valor);
+            //desar
+            localStorage.setItem(valor,valor);
+            //obtenir valor
+            var peli = localStorage.getItem("peli");
+
+            //imprimir
+            console.log(localStorage.getItem("peli"));
+            document.getElementById("llista").innerHTML = localStorage.peli;
+        }else{
+            document.getElementById("llista").innerHTML = "Sorry, your browser does not support Web Storage...";
+        }
+    // }
+
+    function persist(thisArg) {
+        localStorage.setItem(thisArg.id, thisArg.value);
+    }
+</script>
+</html>
