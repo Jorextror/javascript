@@ -6,14 +6,17 @@
     <title>Document</title>
 </head>
 <body>
+
     <h1>Títols de Pel·licules</h1>
     <form action="index.html" method="post">
         <input type="text" name="llista" id="afegir" class="llista">
-        <input  type="submit" value="Desar">
+        <input onclick="Titol()" type="submit" value="Desar">
     </form>
     <h3>Pelicules afegides</h3>
     <div id="llista" ></div>
+
 </body>
+
 <script>
 if (typeof(Storage) !== 'undefined') {
     console.log("Local storage disponible");
@@ -22,7 +25,7 @@ if (typeof(Storage) !== 'undefined') {
 }
 let pelicules = []
 
-// function clickEx2() {
+function Titol() {
     localStorage.setItem("key","value")
     document.querySelector('#llista').innerHTML = localStorage.setItem("key","value")
     var peli = document.getElementById('afegir').value
@@ -38,6 +41,7 @@ let pelicules = []
     var peliculaJS = JSON.parse(localStorage.getItem("pelicula"));
     console.log(peliculaJS)
     
-// }
+}
 </script>
+
 </html>
