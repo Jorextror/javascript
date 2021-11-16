@@ -1,0 +1,47 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Títols de Pel·licules</h1>
+    <form action="index.html" method="post">
+        <input type="text" name="llista" id="afegir" class="llista">
+        <input onclick="Titol()" type="submit" value="Desar">
+    </form>
+    <h3>Pelicules afegides</h3>
+    <div id="llista" ></div>
+
+</body>
+
+<script>
+if (typeof(Storage) !== 'undefined') {
+    console.log("Local storage disponible");
+} else{
+    console.log("Navegador incompatible amb Localstorage");
+}
+let pelicules = []
+
+function Titol() {
+    localStorage.setItem("key","value")
+    document.querySelector('#llista').innerHTML = localStorage.setItem("key","value")
+    var peli = document.getElementById('afegir').value
+    pelicules.push(peli)
+    document.querySelector('#llista').append(pelicules);
+    
+    var pelicula = {
+        key: peli,
+        value: peli
+    }
+    localStorage.setItem("pelicula",JSON.stringify(pelicula));
+    
+    var peliculaJS = JSON.parse(localStorage.getItem("pelicula"));
+    console.log(peliculaJS)
+    
+}
+</script>
+
+</html>

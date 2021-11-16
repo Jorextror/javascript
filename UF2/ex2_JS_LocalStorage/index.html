@@ -15,33 +15,29 @@
     <h1>Títols de Pel·licules</h1>
     <form action="index.html" method="post">
         <input type="text" name="titol" id="titol">
-        <input onclick="Inp()" type="submit" value="Desar">
+        <input onclick="Titols()" type="submit" value="Desar">
     </form>
     <h3>Pelicules afegides</h3>
     <div id="llista" ></div>
 </body>
 <script>
-    // function Inp() {
-        var titols=[];
+    function Titols() {
         //compatibilitat browser
         if (typeof(Storage) !== "undefined"){
             console.log("Local Storage disponible");
             //obtener el input
             var valor = document.getElementById("titol").value
-            console.log(valor);
             //desar
             localStorage.setItem(valor,valor);
             //obtenir valor
             var peli = localStorage.getItem("peli");
-
             //imprimir
-            console.log(localStorage.getItem("peli"));
-            document.getElementById("llista").innerHTML = localStorage.peli;
+            document.getElementById("llista").innerHTML = localStorage.getItem(valor);
         }else{
-            document.getElementById("llista").innerHTML = "Sorry, your browser does not support Web Storage...";
+            document.getElementById("llista").innerHTML = "Local Storage No disponible";
         }
-    // }
-
+    }
+//intento de autodesi
     function persist(thisArg) {
         localStorage.setItem(thisArg.id, thisArg.value);
     }
