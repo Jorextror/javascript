@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ca">
+    <head>
+        <meta charset="uf-8"/>
+        <title>JQuery-Esdeveniments</title>
+        <!--
+        <script
+            src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous">
+        </script>
+
+        -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <!-- <script type="text/javascript" src="js/jquery-3.4.1.min.js" charset="utf-8"></script>>  -->
+        <script type="text/javascript" src="js/02-esdeveniments.js" charset="utf-8"> </script> 
+        <style>
+            .caixa{
+                width: 250px;
+                height: 250px;
+                border: 2px solid black;
+                background: yellow;
+                transition: 300ms all;
+
+            }
+            input{
+                padding: 10px;
+                width: 300px;
+                font-size: 20px
+            }
+            #dades{
+                padding: 10px;
+                width: 300px;
+                height: 50px;
+                margin-top: 10px;
+                border: 2px dashed black;
+                display: none;
+            }
+
+            #segueix{
+               
+                width: 30px;
+                height: 30px;
+                margin-top: 10px;
+                background:greenyellow;
+                position: absolute;
+                border-radius: 999px;
+            }
+
+
+            /*#caixa:hover{
+                
+                background: yellowgreen;
+                cursor: pointer;
+            }*/
+        </style>
+
+       
+    </head>
+    <body>
+
+        <h1> JQuery </h1>
+
+        <form>
+            <input type="text" id="nom"/>
+        </form>
+        <div id="dades">
+
+        </div>
+          <br/>
+        <div id="caixa" class="caixa">
+            Una caixa
+        </div>
+
+        <div id="caixa2" class="caixa">
+                Una altra caixa
+        </div>
+
+        <div id="segueix">
+
+        </div>
+
+
+
+        
+          
+    </body>
+</html>
