@@ -75,18 +75,34 @@ $(document).ready(function() {
     });
 });
 // 9 pelota rebotando
+i=0;
 $(document).ready(function(){
     $(".tirar").click(function(){
-        function animacion() {
-            $('.pilota').animate({
-            marginTop: '+=500',
-            }, 500, function() {
-            $('.pilota').animate({
-                marginTop: '-=500',
-            }, 1000, function() {
-                animacion()
-            });
-            });
+        // vuelve al punto de arriba
+        $('.pilota').animate({
+            marginLeft: 0,
+            marginTop: 0,
+        });
+        // 'x' margin top aumenta,  'y' margin top disminuie,  'z' margin left
+        function animacion(x=600,y=400,z=10) {
+            //termina cuando estan los valores por defecto al 0 i como la llamada de abajo lo vamos restando se puede calcular para que haga 3 veces
+            if (x>0 && y>=0) {
+                // baja 
+                $('.pilota').animate({
+                    marginLeft: '+='+z,
+                    marginTop: '+='+x,
+                    //velocidad de la animacion
+                }, 400, function() {
+                //sube
+                $('.pilota').animate({
+                    // marginLeft: '+='+z,
+                    marginTop: '-='+y,
+                }, 500, function() {
+                    //lo vuelve a llamar para repetirlo pero con los valores un poco mas bajos y mas a la derecha
+                    animacion(x-=200,y-=200,z+=10)     
+                });
+                });
+            }
         }
         animacion();
     });

@@ -16,8 +16,9 @@ $(document).ready(function(){
         $("#box").prepend("<span <b id='p'>Text al principi. </b></span>");
     });
     $("#delf").click(function(){
-        alert($("div").html());
-      });
-
-
+        $("span:last-child").remove();
+    });
+      $("#delp").click(function(){
+        $("span:first-child").remove();;
+    });
 });
