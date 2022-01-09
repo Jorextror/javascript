@@ -40,8 +40,7 @@ function taula(usuaris) {
     }
     document.write("</table>")
 }
-var usuaris = [];
-fetch("https://reqres.in/api/users")
+ fetch("https://reqres.in/api/users")
     .then(data => data.json())
     .then(data => {
         usuaris = data.data;

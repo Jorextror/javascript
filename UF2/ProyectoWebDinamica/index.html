@@ -4,55 +4,162 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Dinamica</title>
+    <!-- CSS -->
     <link rel="stylesheet" href="css/styles.css">
-    <!-- java -->
-    <script type="text/javascript" src="js/main.js" charset="utf-8"> </script> 
+    <link id="thema" rel="stylesheet" href="css/original.css">
+
     <!-- jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/jquery.js" charset="utf-8"> </script> 
-    <!-- slider -->
+    <!-- SLIDEER -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 </head>
-<body>
+<body onload="mueveReloj()">
     <div class="main" >
         <div class="titol" ><h1>Proyecto Web Dinamica</h1></div>
+        <!-- MENU -->
         <div class="nav" >
             <ul>
-                <li>Posts</li>
-                <li>Rellotje</li>
-                <li>Registre</li>
-                <li>covid</li>
+                <a id="posts" href="#"><li>Posts</li></a>
+                <a id="rellotje" href="#"><li>Rellotje</li></a>
+                <a id="registre" href="#"><li>Registre</li></a>
+                <a id="quiz" href="#"><li>Quiz</li></a>
             </ul>
         </div>
-        <!-- slider -->
+        <!-- SLIDER -->
         <div class="slider" >
             <div>
-                <p>slider</p> 
-                <p>si</p> 
+                <img src="img/api3.jpg" alt="">
             </div>
             <div>
-                <p>another one</p> 
-                <p>asi es</p> 
+                <img src="img/api2.jpg" alt="">
             </div>
         </div>
-
+        <!-- APIS -->
+        <div id="post">
         <div class="cercar">
             <form action="">
                 Cerca algo "api" <input type="text" id="cercar" >
-                <input type="submit" value="Cercar">
+                <input type="submit" value="Cercar"> 
             </form>
         </div>
 
-        <div class="api" >
-            api
+        <div id="api" >
+        </div>
+
+        </div>
+        <!-- RELOJ -->
+        <div id="reloj">
+        <form name="form_reloj" >
+            <input type="text" name="reloj" size="10" style="background-color : Black; color : White; font-family : Verdana, Arial, Helvetica; font-size : 8pt; text-align : center;" onfocus="window.document.form_reloj.reloj.blur()">
+            </form>
+        </div>
+        <!-- REGISTRAR -->
+        <div id="regis">
+            <form action="" id="formulario">
+                <!-- nom -->
+                <label for="name">Nom:</label><br>
+                <input type="text" id="nom" name="nom"><br>
+                <p id="nom" ></p>
+                <!-- cognom -->
+                <label for="name">Cognom:</label><br>
+                <input type="text" id="cognom" name="cognom"><br>
+                <p id="cognom" ></p>
+                <!-- email -->
+                <label for="name">Email:</label><br>
+                <input type="text" id="email" name="email"><br>
+                <p id="email" ></p>
+                <!-- genere -->
+                <label for="name">Genere:</label><br>
+                <select name="genere" id="genere">
+                    <option value="none" selected>-</option>
+                    <option value="male">Home</option>
+                    <option value="female">Dona</option>
+                    <option value="other">Otro</option>
+                </select><br>
+                <p id="genere" ></p>
+                <!-- data -->
+                <label for="name">Data naixament:</label><br>
+                <input type="text" id="data" name="data"><br>
+                <p id="data" ></p>
+                <!-- edat -->
+                <label for="name">Edat:</label><br>
+                <input type="text" id="edat" name="edat" readonly><br><!-- readonly no permite editar el campo -->
+                <p id="edat" ></p>
+
+                <input id="submit" type="submit" value="Enviar">
+            </form>
+                <div id="resultat">
+                </div>
+        </div>
+        <!-- QUIZ -->
+        <div id="quizs">
         </div>
     </div>
-    <!-- <div class="tema" ><a id="a" href="#">a</a></div>
+    <!-- TEMAS -->
+    <div class="tema" ><a id="a" href="#">a</a></div>
     <div class="tema" ><a id="b" href="#">b</a></div>
     <div class="tema" ><a id="c" href="#">c</a></div>
-    <div class="tema" ><a id="d" href="#">d</a></div> -->
+    <div class="tema" ><a id="d" href="#">d</a></div>
 
-    <div class="footer"><p>Curs 2n DAW</p> <a class="down" href="#">Anar al principi</a> </div>
+    <div class="footer">Curs 2n DAW  <a class="down" href="#">Anar al principi</a> </div>
 </body>
+    <script>
+        //TEMAS
+        $("#a").click(function(){
+            $('#thema').attr('href', 'css/original.css');
+            var valor = 'original';
+            localStorage.setItem("valor",valor);
+        });
+        $("#b").click(function(){
+            $('#thema').attr('href', 'css/blue.css');
+            var valor = 'blue';
+            localStorage.setItem("valor",valor);
+        });
+        $("#c").click(function(){
+            $('#thema').attr('href', 'css/green.css');
+            var valor = 'green';
+            localStorage.setItem("valor",valor);
+        });
+        $("#d").click(function(){
+            $('#thema').attr('href', 'css/red.css');
+            var valor = 'red';
+            localStorage.setItem("valor",valor);       
+        });
+
+        // ----- localStorage no guarda
+        //compatibilitat browser
+        if (typeof(Storage) !== "undefined"){
+            console.log("Local Storage disponible");
+            //obtenir valor
+            var thema = localStorage.getItem("valor");
+            //executar
+            $('#thema').attr('href', 'css/'+thema+'.css');
+        }else{
+            console.log("Local Storage No disponible");
+        }
+        // --- reloj 
+        function mueveReloj(){
+            momentoActual = new Date()
+            hora = momentoActual.getHours()
+            minuto = momentoActual.getMinutes()
+            segundo = momentoActual.getSeconds()
+        
+            str_segundo = new String (segundo)
+            if (str_segundo.length == 1)
+               segundo = "0" + segundo
+        
+            str_minuto = new String (minuto)
+            if (str_minuto.length == 1)
+               minuto = "0" + minuto
+        
+            str_hora = new String (hora)
+            if (str_hora.length == 1)
+               hora = "0" + hora
+            horaImprimible = hora + " : " + minuto + " : " + segundo
+            document.form_reloj.reloj.value = horaImprimible
+            setTimeout("mueveReloj()",5000)
+        }
+    </script>
 </html>
