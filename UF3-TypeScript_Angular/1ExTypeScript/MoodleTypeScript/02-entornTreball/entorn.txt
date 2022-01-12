@@ -1,0 +1,43 @@
+En Windows:
+    *Cygwin emulador terminal Linux
+    *instal·lar git ssh i wget
+
+en Linux:
+    * comprovar si tenim git (git -v) i instal·lar-lo
+
+Instal·lar TypeScript
+    * Instalar Node i npm
+        https://linuxize.com/post/how-to-install-node-js-on-ubuntu-18.04/
+        o bé https://nodejs.org/
+    * http://www.typescriptlang.org/
+    * des del terminal instal·lar com a sudo: 
+        npm install -g typescript
+        comproveu amb tsc -v
+
+
+We love TypeScript for many things… 
+With TypeScript, several of our team members
+ have said things like 
+ 'I now actually understand most of our own code!' 
+ because they can easily traverse it and 
+ understand relationships much better. 
+ And we’ve found several bugs via TypeScript’s checks.”
+
+— Brad Green, Engineering Director - AngularJS
+
+
+Hola Món:
+fem 01-holaMon.ts
+compilem (fa la traducció a js)
+a l'html hem d'incloure el js
+
+pilarmote@pilarmt:~/Escriptori/lacetania-2019-2020/mp6/UF3/TypeScript/02-entornTreball/js$ tsc 01-holamon.ts 
+pilarmote@pilarmt:~/Escriptori/lacetania-2019-2020/mp6/UF3/TypeScript/02-entornTreball/js$ ls
+01-holamon.js  01-holamon.ts
+
+<script src="js/01-holamon.js"></script>
+
+a cada canvi s'ha de tornar a compilar (una mica pesat)
+podem executar l'intèrpret en watch mode:  
+    tsc -w *.ts
+i a mesura que canviem alguna cosa en el codi genera un nou js
