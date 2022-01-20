@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UnitatsFormativesComponent } from './unitats-formatives.component';
+import { ServerComponent } from './server.component';
 
-describe('UnitatsFormativesComponent', () => {
-  let component: UnitatsFormativesComponent;
-  let fixture: ComponentFixture<UnitatsFormativesComponent>;
+describe('ServerComponent', () => {
+  let component: ServerComponent;
+  let fixture: ComponentFixture<ServerComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ UnitatsFormativesComponent ]
+      declarations: [ ServerComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(UnitatsFormativesComponent);
+    fixture = TestBed.createComponent(ServerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
