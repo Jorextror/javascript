@@ -4,26 +4,21 @@
   class="form-control"
   (input)="onUpdateServerName($event)">
  -->
-
-<input
-  type="text"
-  class="form-control"
-  [(ngModel)]="serverName">
-
-
+<input type="text" 
+class="form-control" 
+[(ngModel)]="username"> <!-- 2 way binding -->
 <!-- <button
   class="btn btn-primary"
   [disabled]="!allowNewServer">
   Add server
 </button> -->
 <br>
-<button
-  class="btn btn-primary"
-  [disabled]="!allowNewServer"
-  (click)="onCreateServer()">Add Server</button>
+<button class="btn btn-primary" 
+[disabled]="!allowNewServer"
+(click)="vaciar()">Button
+</button>
 <!--<p [innerText]="allowNewServer"></p>-->
-<p>{{ serverCreationStatus }}</p>
+<!-- <p>{{ serverCreationStatus }}</p> -->
+<h3>username: {{ username }}</h3> <!-- data binding -->
 
-
-<app-server></app-server>
-
+<!-- <app-server></app-server> -->

@@ -1,0 +1,6 @@
+
+<ul [ngSwitch]="cotxe.combustible" >
+    <li *ngFor="let item of cotxe" *ngSwitchCase="'electric'">
+        <span [ngStyle]="{'background':color}"> Model: {{ item.model }}, Marca: {{ item.marca }}, Color: {{ item.color }}, Velocitat: {{ item.velocitat }}</span>
+    </li>
+</ul>
