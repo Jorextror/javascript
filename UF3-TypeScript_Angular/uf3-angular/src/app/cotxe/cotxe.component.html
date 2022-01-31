@@ -1,6 +1,50 @@
+<!-- ---- 5 ngFor ---- -->
+<!-- <ul *ngFor="let item of cotxe" >
+    <li>
+        <span> Model: {{ item.model }}, Marca: {{ item.marca }}, Color: {{ item.color }}, Velocitat: {{ item.velocitat }}</span>
+    </li>
+</ul> -->
+<!-- ----- 6 ngSwith  tendria que hacer solo una vez <li> pero me salen ideas de ultima hora  ---- -->
+<ul *ngFor="let item of cotxe" [ngSwitch]="cotxe.combustible" >
+    <li  *ngSwitchCase="'electric'"[style.color] = "'green'">
+        <span> Model: {{ item.model }}, Marca: {{ item.marca }}, Color: {{ item.color }}, Velocitat: {{ item.velocitat }}</span>
+        <!-- ---- 8 ---- -->
+        <button class="btn btn-primary" (click)="eliminarCotxe(item.model,item.marca)">eliminar Cotxe </button>
+    </li>
+    <li  *ngSwitchCase="'hybrid'"[style.color] = "'green'">
+        <span> Model: {{ item.model }}, Marca: {{ item.marca }}, Color: {{ item.color }}, Velocitat: {{ item.velocitat }}</span>
+        <button class="btn btn-primary" (click)="eliminarCotxe(item.model,item.marca)">eliminar Cotxe </button>
+    </li>
 
-<ul [ngSwitch]="cotxe.combustible" >
-    <li *ngFor="let item of cotxe" *ngSwitchCase="'electric'">
-        <span [ngStyle]="{'background':color}"> Model: {{ item.model }}, Marca: {{ item.marca }}, Color: {{ item.color }}, Velocitat: {{ item.velocitat }}</span>
+    <li  *ngSwitchCase="'gas'"[style.color] = "'blue'">
+        <span> Model: {{ item.model }}, Marca: {{ item.marca }}, Color: {{ item.color }}, Velocitat: {{ item.velocitat }}</span>
+        <button class="btn btn-primary" (click)="eliminarCotxe(item.model,item.marca)">eliminar Cotxe </button>
+    </li>
+    <li  *ngSwitchCase="'gasolina'"[style.color] = "'blue'">
+        <span> Model: {{ item.model }}, Marca: {{ item.marca }}, Color: {{ item.color }}, Velocitat: {{ item.velocitat }}</span>
+        <button class="btn btn-primary" (click)="eliminarCotxe(item.model,item.marca)">eliminar Cotxe </button>
+    </li>
+
+    <li  *ngSwitchCase="'diesel'"[style.color] = "'brown'">
+        <span> Model: {{ item.model }}, Marca: {{ item.marca }}, Color: {{ item.color }}, Velocitat: {{ item.velocitat }}</span>
+        <button class="btn btn-primary" (click)="eliminarCotxe(item.model,item.marca)">eliminar Cotxe </button>
     </li>
 </ul>
+
+<!-- ---- 7 form two way----- -->
+<h2>Afegir cotxe</h2>
+Model:
+<input type="text" [(ngModel)]="model">
+Marca:
+<input type="text" [(ngModel)]="marca">
+Color:
+<input type="text" [(ngModel)]="color">
+Velocitat:
+<input type="text" [(ngModel)]="velocitat">
+Combustible:
+<input type="text" [(ngModel)]="combustible">
+
+<button class="btn btn-primary" (click)="afegirCotxe()">afegir Cotxe </button>
+
+<!-- 9 -->
+<button class="btn btn-primary" (click)="correComUnLlamp()">correComUnLlamp </button>

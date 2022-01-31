@@ -4,6 +4,7 @@ export class Cotxe{
         public marca: string,
         public color: string,
         public velocitat: number,
-        public combustible: string
+        public combustible: string,
+        public correComUnLlamp: boolean
     ){}
 }

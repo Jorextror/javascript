@@ -29,6 +29,7 @@ export class ServersComponent implements OnInit, DoCheck {
     //console.log(event);
     this.serverName = (<HTMLInputElement>event.target).value;
   }
+  // ---- 3 no poder clikar el boto si esta buit ----
   ngDoCheck(): void{
     if(this.username===""){
       this.allowNewServer = false;
