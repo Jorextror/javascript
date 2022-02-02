@@ -1,2 +1,30 @@
-<app-servers></app-servers>
-<app-cotxe></app-cotxe>
+<div>
+    <h1>Títol</h1>
+    <h2>Descripcio</h2>
+
+    <nav>
+        <a [routerLink]="['/']" [routerLinkActive]="['marca']" > Home </a>
+        &nbsp;
+        <a [routerLink]="['/modul6']"[routerLinkActive]="['marca']"> Modul6 </a>
+        &nbsp;
+        <a [routerLink]="['/exemple02']"[routerLinkActive]="['marca']"> Exemple02 </a>
+        &nbsp;
+        <a [routerLink]="['/cotxe']"[routerLinkActive]="['marca']"> Cotxe </a>
+        &nbsp;
+        <a [routerLink]="['/unitats-formatives']"[routerLinkActive]="['marca']"> UnitatFormativa </a>
+    </nav>
+
+    <a href="http://localhost:4200/cotxe?model=asd&marca=egs&color=blue&velocitat=65&combustible=gas">cotxe</a>
+    <form  method="get">
+        model<input type="text" name="model" id="">
+        marca<input type="text" name="marca" id="">
+        color<input type="text" name="color" id="">
+        velocitat<input type="text" name="velocitat" id="">
+        combustible<input type="text" name="combustible" id="">
+        <input type="submit" name="submit" id="">
+
+    </form>
+    <hr>
+    <router-outlet></router-outlet>
+</div>
+

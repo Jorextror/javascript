@@ -1,0 +1,17 @@
+div{
+    padding: 10px;
+    background-color: moccasin;
+
+}
+nav a{
+    padding: 5px;
+    text-decoration: none;
+}
+nav a:hover{
+    background-color: plum;
+}
+/* --- 3  ----*/
+.marca{
+    background-color: darkblue;
+    color: white;
+}

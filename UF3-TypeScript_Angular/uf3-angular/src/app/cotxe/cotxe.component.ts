@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { listenerCount } from 'process';
 import { Cotxe } from '../models/cotxe';
+
+import { Router, ActivatedRoute, Params } from '@angular/router';
 
 @Component({
   selector: 'app-cotxe',
@@ -8,44 +9,58 @@ import { Cotxe } from '../models/cotxe';
   styleUrls: ['./cotxe.component.css']
 })
 export class CotxeComponent implements OnInit {
-  public cotxe: Array<Cotxe>;
+  public cotxes: Array<Cotxe>;
+  public model: string='';
+  public marca: string='';
+  public color: string='';
+  public velocitat: number=0;
+  public combustible: string='';
 
-  constructor() {
-    this.cotxe=[
-      new Cotxe('audi','4A','negre',120, "electric",true),
-      new Cotxe('escarabajo','escarabajo','groc',80, "gas",false),
-      new Cotxe('audi','A6','blanc',120, "hybrid",true),
-      new Cotxe('rapt','rapt','rojo',200, "diesel",false)
+  constructor(
+    private _route: ActivatedRoute,
+    private _router: Router
+  ) {
+    this.cotxes=[
+      new Cotxe('audi','4A','negre',120, "electric"),
+      new Cotxe('escarabajo','escarabajo','groc',80, "gas"),
+      new Cotxe('audi','A6','blanc',120, "hybrid"),
+      new Cotxe('rapt','rapt','rojo',200, "diesel")
     ]
    }
-  ngOnInit(): void {
+  ngOnInit(){
+    this._route.params.subscribe((params:Params)=>{
+      this.model=params["model"];
+      this.marca=params["marca"];
+      this.color=params["color"];
+      this.velocitat=params["velocitat"];
+      this.combustible=params["combustible"];
+
+      var unCotxe = new Cotxe(this.model, this.marca, this.color, this.velocitat, this.combustible)
+      this.cotxes.push(unCotxe)
+  
+    })
   }
   // ---- 7 -----
   afegirCotxe(){
-    var afegirCotxe = new Cotxe(this.model, this.marca, this.color, this.velocitat, this.combustible, this.correComUnLlamp)
-    this.cotxe.push(afegirCotxe)
+    var unCotxe = new Cotxe(this.model, this.marca, this.color, this.velocitat, this.combustible)
+    this.cotxes.push(unCotxe)
   }
   // ---- 8 -----
   eliminarCotxe(Emodel :String, Emarca: String){
-    for (let i = 0; i < this.cotxe.length; i++) {
-      if(this.cotxe[i].model==Emodel && this.cotxe[i].marca==Emarca){
-        delete this.cotxe[i]
+    for (let i = 0; i < this.cotxes.length; i++) {
+      if(this.cotxes[i].model==Emodel && this.cotxes[i].marca==Emarca){
+        delete this.cotxes[i]
       }
       
     }
   }
   // ---- 9 ----
   // verifica si el boolea correComUnLlamp esta corecta per la velocitat del cotxe
-  correComUnLlamp(){
-    for (let i = 0; i < this.cotxe.length; i++) {
-      if (this.cotxe[i].velocitat > 150){
-        var remplace=this.cotxe[i]
-        remplace.splice(5, 1, true);
+  // correComUnLlamp(){
+  //   for (let i = 0; i < this.cotxes.length; i++) {
+  //       this.cotxes[i].color= this.cotxes[i].velocitat > 150)
         // splice(posicio, 0 = inserta 1 = remplaza, valor)
         // me esta detectando el splice como si fuera un atributo de Cotxe pero no es mi intencion
-      }else{
-        this.cotxe[i].splice(5, 1, false);
-      }
-    }
-  }
+    // }
+  // }
 }

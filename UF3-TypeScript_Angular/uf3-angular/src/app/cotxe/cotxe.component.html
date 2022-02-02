@@ -1,14 +1,13 @@
 <!-- ---- 5 ngFor ---- -->
-<!-- <ul *ngFor="let item of cotxe" >
+<ul *ngFor="let item of cotxes" >
     <li>
         <span> Model: {{ item.model }}, Marca: {{ item.marca }}, Color: {{ item.color }}, Velocitat: {{ item.velocitat }}</span>
     </li>
-</ul> -->
+</ul>
 <!-- ----- 6 ngSwith  tendria que hacer solo una vez <li> pero me salen ideas de ultima hora  ---- -->
-<ul *ngFor="let item of cotxe" [ngSwitch]="cotxe.combustible" >
+<!-- <ul *ngFor="let item of cotxe" [ngSwitch]="cotxe.combustible" >
     <li  *ngSwitchCase="'electric'"[style.color] = "'green'">
         <span> Model: {{ item.model }}, Marca: {{ item.marca }}, Color: {{ item.color }}, Velocitat: {{ item.velocitat }}</span>
-        <!-- ---- 8 ---- -->
         <button class="btn btn-primary" (click)="eliminarCotxe(item.model,item.marca)">eliminar Cotxe </button>
     </li>
     <li  *ngSwitchCase="'hybrid'"[style.color] = "'green'">
@@ -29,7 +28,7 @@
         <span> Model: {{ item.model }}, Marca: {{ item.marca }}, Color: {{ item.color }}, Velocitat: {{ item.velocitat }}</span>
         <button class="btn btn-primary" (click)="eliminarCotxe(item.model,item.marca)">eliminar Cotxe </button>
     </li>
-</ul>
+</ul> -->
 
 <!-- ---- 7 form two way----- -->
 <h2>Afegir cotxe</h2>
@@ -47,4 +46,4 @@ Combustible:
 <button class="btn btn-primary" (click)="afegirCotxe()">afegir Cotxe </button>
 
 <!-- 9 -->
-<button class="btn btn-primary" (click)="correComUnLlamp()">correComUnLlamp </button>
+<!-- <button class="btn btn-primary" (click)="correComUnLlamp()">correComUnLlamp </button> -->
