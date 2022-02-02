@@ -29,11 +29,17 @@ export class CotxeComponent implements OnInit {
    }
   ngOnInit(){
     this._route.params.subscribe((params:Params)=>{
-      this.model=params["model"];
-      this.marca=params["marca"];
-      this.color=params["color"];
-      this.velocitat=params["velocitat"];
-      this.combustible=params["combustible"];
+      this.model=params['model'];
+      this.marca=params['marca'];
+      this.color=params['color'];
+      this.velocitat=params['velocitat'];
+      this.combustible=params['combustible'];
+
+      // this.model=params.model;
+      // this.marca=params.marca;
+      // this.color=params.color;
+      // this.velocitat=params.velocitat;
+      // this.combustible=params.combustible;
 
       var unCotxe = new Cotxe(this.model, this.marca, this.color, this.velocitat, this.combustible)
       this.cotxes.push(unCotxe)
