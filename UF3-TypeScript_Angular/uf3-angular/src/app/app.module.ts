@@ -1,9 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-// import { routing, appRoutingProviders } from './app.routing';
-import { AppRoutingModule } from './app.routing';
-import { HttpClientModule } from '@angular/common/http'
+import { routing, appRoutingProviders } from './app.routing';
+// import { AppRoutingModule } from './app.routing';
+// import { HttpClientModule } from '@angular/common/http'
 
 import { AppComponent } from './app.component';
 import { ServerComponent } from './server/server.component';
@@ -29,12 +29,12 @@ import { UnitatsFormativesComponent } from './unitats-formatives/unitats-formati
   imports: [
     BrowserModule,
     FormsModule,
-    // routing
-    AppRoutingModule,
-    HttpClientModule
+    routing
+    // AppRoutingModule,
+    // HttpClientModule
   ],
   providers: [
-    // appRoutingProviders
+    appRoutingProviders
   ],
   bootstrap: [AppComponent]
 })

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Cotxe } from '../models/cotxe';
 
 import { Router, ActivatedRoute, Params } from '@angular/router';
+// import 'rxjs/add/operator/filter';
 
 @Component({
   selector: 'app-cotxe',
@@ -27,24 +28,30 @@ export class CotxeComponent implements OnInit {
       new Cotxe('rapt','rapt','rojo',200, "diesel")
     ]
    }
-  ngOnInit(){
-    this._route.params.subscribe((params:Params)=>{
+   ngOnInit() {
+    this._route.queryParams.subscribe((params: Params) => {
+      console.log(params);
       this.model=params['model'];
       this.marca=params['marca'];
       this.color=params['color'];
       this.velocitat=params['velocitat'];
       this.combustible=params['combustible'];
 
+      var unCotxe = new Cotxe(this.model, this.marca, this.color, this.velocitat, this.combustible);
+      this.cotxes.push(unCotxe);
+
+
+    // this._route.queryParams.filter(params => params.model).subscribe(params => {
+    //     this.model = params.model;
+    //     console.log(this.model);
+    //   }
+    // );
       // this.model=params.model;
       // this.marca=params.marca;
       // this.color=params.color;
       // this.velocitat=params.velocitat;
       // this.combustible=params.combustible;
-
-      var unCotxe = new Cotxe(this.model, this.marca, this.color, this.velocitat, this.combustible)
-      this.cotxes.push(unCotxe)
-  
-    })
+    });
   }
   // ---- 7 -----
   afegirCotxe(){
