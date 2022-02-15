@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { routing, appRoutingProviders } from './app.routing';
 // import { AppRoutingModule } from './app.routing';
-// import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http'
 
 import { AppComponent } from './app.component';
 import { ServerComponent } from './server/server.component';
@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { Modul6Component } from './modul6/modul6.component';
 import { Exemple02Component } from './exemple02/exemple02.component';
 import { UnitatsFormativesComponent } from './unitats-formatives/unitats-formatives.component';
+import { ExternComponent } from './extern/extern.component';
 
 @NgModule({
   declarations: [
@@ -23,15 +24,16 @@ import { UnitatsFormativesComponent } from './unitats-formatives/unitats-formati
     HomeComponent,
     Modul6Component,
     Exemple02Component,
-    UnitatsFormativesComponent
+    UnitatsFormativesComponent,
+    ExternComponent
     
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    routing
+    routing,
     // AppRoutingModule,
-    // HttpClientModule
+    HttpClientModule
   ],
   providers: [
     appRoutingProviders

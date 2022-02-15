@@ -1,0 +1,19 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<nav>
+    <a [routerLink]="['/']" [routerLinkActive]="['marca']" > About </a>
+    &nbsp;
+    <a [routerLink]="['/projects']"[routerLinkActive]="['marca']"> Projects </a>
+    &nbsp;
+    <a [routerLink]="['/create']"[routerLinkActive]="['marca']"> Create </a>
+    &nbsp;
+    <a [routerLink]="['/contact']"[routerLinkActive]="['marca']">  Contact</a>
+</nav>
+
+<div class="container cos">
+    <router-outlet></router-outlet>
+</div>
+
+<div class="footer">
+    <p>Jordi Oliveda 2nDAW M6-UF3 - Projecte Angular v8</p>
+</div>

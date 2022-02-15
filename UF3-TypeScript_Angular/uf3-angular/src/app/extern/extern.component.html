@@ -1,0 +1,12 @@
+<input type="text" [(ngModel)]="paisId" (keyup.enter)="carregarPaisos()"/>
+
+<div *ngIf = "paisOk; else noPais" >
+    <h3> {{ pais }} </h3>
+    <p> {{ 'capital: ' + capital}}</p>
+    <p> {{ 'area: ' + area }} </p>
+    <p> {{ 'population: ' + population }} </p>
+    <p> {{ 'languages: ' + languages }} </p>
+        <img src="{{flags}}" width="200">
+</div>
+
+<ng-template #noPais> Pais Incorrecte </ng-template>

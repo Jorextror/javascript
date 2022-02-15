@@ -1,0 +1,33 @@
+nav a{
+    padding: 14px 16px;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+}
+nav a:hover{
+    background-color: plum;
+}
+
+nav{
+    margin: 0;
+    padding: 14px 16px;
+    background-color: black;
+    opacity: 60%;
+}
+.cos>{
+    background-color:rgb(209, 132, 209) ;
+}
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color:slategray;
+    color: white;
+    text-align: center;
+}
+
+/* --- 3  ----*/
+.marca{
+    background-color: darkblue;
+}

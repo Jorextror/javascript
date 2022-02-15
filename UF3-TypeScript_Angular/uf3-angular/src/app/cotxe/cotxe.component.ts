@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Cotxe } from '../models/cotxe';
+import { CotxeService } from '../services/cotxe.service'; //service
 
 import { Router, ActivatedRoute, Params } from '@angular/router';
 // import 'rxjs/add/operator/filter';
@@ -7,7 +8,8 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 @Component({
   selector: 'app-cotxe',
   templateUrl: './cotxe.component.html',
-  styleUrls: ['./cotxe.component.css']
+  styleUrls: ['./cotxe.component.css'],
+  providers: [CotxeService] //service
 })
 export class CotxeComponent implements OnInit {
   public cotxes: Array<Cotxe>;
@@ -19,7 +21,8 @@ export class CotxeComponent implements OnInit {
 
   constructor(
     private _route: ActivatedRoute,
-    private _router: Router
+    private _router: Router,
+    private _cotxeService: CotxeService  //service
   ) {
     this.cotxes=[
       new Cotxe('audi','4A','negre',120, "electric"),
@@ -29,6 +32,8 @@ export class CotxeComponent implements OnInit {
     ]
    }
    ngOnInit() {
+    this.cotxes = this._cotxeService.getCotxes();//service
+
     this._route.queryParams.subscribe((params: Params) => {
       console.log(params);
       this.model=params['model'];
@@ -36,21 +41,9 @@ export class CotxeComponent implements OnInit {
       this.color=params['color'];
       this.velocitat=params['velocitat'];
       this.combustible=params['combustible'];
-
-      var unCotxe = new Cotxe(this.model, this.marca, this.color, this.velocitat, this.combustible);
-      this.cotxes.push(unCotxe);
-
-
-    // this._route.queryParams.filter(params => params.model).subscribe(params => {
-    //     this.model = params.model;
-    //     console.log(this.model);
-    //   }
-    // );
-      // this.model=params.model;
-      // this.marca=params.marca;
-      // this.color=params.color;
-      // this.velocitat=params.velocitat;
-      // this.combustible=params.combustible;
+    // Activitat Angular 3
+    //   var unCotxe = new Cotxe(this.model, this.marca, this.color, this.velocitat, this.combustible);
+    //   this.cotxes.push(unCotxe);
     });
   }
   // ---- 7 -----
