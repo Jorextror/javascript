@@ -14,6 +14,8 @@ import { Modul6Component } from './modul6/modul6.component';
 import { Exemple02Component } from './exemple02/exemple02.component';
 import { UnitatsFormativesComponent } from './unitats-formatives/unitats-formatives.component';
 import { ExternComponent } from './extern/extern.component';
+import { DescomptePipe } from './pipes/descompte.pipes';
+import { FormulariPostComponent } from './formulari-post/formulari-post.component';
 
 @NgModule({
   declarations: [
@@ -25,9 +27,10 @@ import { ExternComponent } from './extern/extern.component';
     Modul6Component,
     Exemple02Component,
     UnitatsFormativesComponent,
-    ExternComponent
-    
-  ],
+    ExternComponent,
+    DescomptePipe,
+    FormulariPostComponent
+    ],
   imports: [
     BrowserModule,
     FormsModule,

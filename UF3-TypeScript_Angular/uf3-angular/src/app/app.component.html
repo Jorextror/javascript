@@ -14,6 +14,8 @@
         <a [routerLink]="['/unitats-formatives']"[routerLinkActive]="['marca']"> UnitatFormativa </a>
         &nbsp;
         <a [routerLink]="['/extern']"[routerLinkActive]="['marca']"> extern </a>
+        &nbsp;
+        <a [routerLink]="['/form']"[routerLinkActive]="['marca']"> form </a>
     </nav>
     <p> </p>
     <a href="http://localhost:4200/cotxe?model=asd&marca=egs&color=blue&velocitat=65&combustible=gas">URL afegir un cotxe</a>
@@ -26,6 +28,8 @@
         <input type="submit" name="submit" id="">
 
     </form> -->
+    {{ 100 | descompte:60 }}
+
     <hr>
     <router-outlet></router-outlet>
 </div>

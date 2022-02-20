@@ -7,6 +7,7 @@ import { CotxeComponent } from "./cotxe/cotxe.component";
 import { UnitatsFormativesComponent } from "./unitats-formatives/unitats-formatives.component";
 import { HomeComponent } from "./home/home.component";
 import { ExternComponent } from "./extern/extern.component";
+import { FormulariPostComponent } from './formulari-post/formulari-post.component';
 
 const appRoutes: Routes = [
     {path: 'home', component: HomeComponent},
@@ -16,7 +17,9 @@ const appRoutes: Routes = [
     {path: 'cotxe/:model/:marca/:color/:velocitat/:combustible', component: CotxeComponent},
     {path: 'unitats-formatives', component: UnitatsFormativesComponent},
     {path: 'extern', component: ExternComponent },
-    {path: '**', component: HomeComponent}
+    {path: '**', component: HomeComponent},
+    {path: 'form', component: FormulariPostComponent},
+    {path: 'form/:id', component: FormulariPostComponent}
 ]
 
 @NgModule({

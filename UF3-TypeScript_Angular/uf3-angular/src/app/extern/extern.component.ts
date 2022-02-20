@@ -7,14 +7,14 @@ import { PeticionsService } from '../services/peticions.service';
   styleUrls: ['./extern.component.css']
 })
 export class ExternComponent implements OnInit {
-public paisId:number;
-public pais: String;
-public capital: String;
-public area: String;
-public flags: String;
-public population : String;
-public languages: String;
-public paisOk: boolean=true;
+  public paisId:number;
+  public pais: String;
+  public capital: String;
+  public area: String;
+  public flags: String;
+  public population : String;
+  public languages: String;
+  public paisOk: boolean=true;
 
   constructor( 
     private _peticionsService: PeticionsService

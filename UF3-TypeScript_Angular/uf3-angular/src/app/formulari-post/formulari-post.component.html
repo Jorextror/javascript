@@ -1,0 +1,30 @@
+<input type="text" [(ngModel)]="id" (keyup.enter)="carregar()">
+
+<div *ngfor="let post of posts" >
+    <h3> {{ 'id user: ' + userId }} </h3>
+    <p> {{ 'id: '+ id }} </p>
+    <p> {{ 'title: '+ title }} </p>
+    <p> {{ 'body: '+ body }} </p>
+</div>
+
+<form #formFormulari="ngform" (ngSubmit)="onSubmit()">
+    <label for="userId">userId</label>
+    <input type="number" name="userId" #id="ngModel" [(ngModel)]="FormulariPostComponent.userId" /> <br/>
+
+    <label for="id">id</label>
+    <input type="number" name="id" #id="ngModel" [(ngModel)]="FormulariPostComponent.id" /> <br/>
+
+    <label for="title">title</label>
+    <input type="text" name="title" #id="ngModel" [(ngModel)]="FormulariPostComponent.title" pattern="[a-z]+"/> <br/>
+    <span *ngif="title.touched && !title.valid">
+        El title en minuscules
+    </span> <br/>
+
+    <label for="body">body</label>
+    <input type="text" name="body" #id="ngModel" [(ngModel)]="FormulariPostComponent.body" pattern="[a-z]+" /> <br/>
+    <span *ngif="body.touched && !body.valid">
+        El body en minuscules
+    </span> <br/>
+
+    <input type="submit" value="Enviar"> <br/>
+</form>
