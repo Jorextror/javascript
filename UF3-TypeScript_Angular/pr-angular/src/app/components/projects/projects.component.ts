@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { ProjectService } from 'src/app/services/project.service';
+
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
@@ -7,7 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectsComponent implements OnInit {
 
-  constructor() { }
+  image: any;
+  name: any;
+  langs:any;
+
+  constructor() {
+
+  }
 
   ngOnInit(): void {
   }

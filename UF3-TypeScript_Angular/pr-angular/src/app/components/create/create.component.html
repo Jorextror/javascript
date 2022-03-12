@@ -1,1 +1,29 @@
-<p>create works!</p>
+<h2> CrearProject </h2>
+
+<form #form='ngForm' (ngSubmit)="onSubmit(form)" >
+    <label for="nom">Nom:</label>
+    <input type="text" name="nom"  [(ngModel)]="project.name" required /><br>
+
+
+    <label for="descripcio">Descripcio:</label>
+    <input type="text" name="descripcio" [(ngModel)]="project.description" required/><br>
+
+
+    <label for="category">Categoria:</label>
+    <input type="text" name="category"  [(ngModel)]="project.category" required/><br>
+
+
+    <label for="yaer">Any:</label>
+    <input type="number" name="year" [(ngModel)]="project.year"required /><br>
+
+    
+    <label for="lang">Llenguatge Utilitzats:</label>
+    <input type="text" name="lang" [(ngModel)]="project.langs"required /><br>
+
+
+    <label for="image">image del projecte:</label>
+    <input type="file" name="image" (change)="fileChangeEvent($event)" /><br>
+    
+    <input type="submit" value="Enviar" [disabled]="!form.form.valid" ><br>
+</form>
+    {{ guardat }}
