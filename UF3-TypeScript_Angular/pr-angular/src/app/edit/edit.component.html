@@ -1,0 +1,29 @@
+<h2>Editar Project </h2>
+
+<form #form='ngForm' (ngSubmit)="onSubmit(form)" >
+    <label for="nom">Nom:</label>
+    <input type="text" name="nom"  [(ngModel)]="project.project.name" placeholder='{{ project.project.name }}' /><br>
+
+
+    <label for="descripcio">Descripcio:</label>
+    <input type="text" name="descripcio" [(ngModel)]="project.project.description" placeholder='{{ project.project.description }}'/><br>
+
+
+    <label for="category">Categoria:</label>
+    <input type="text" name="category"  [(ngModel)]="project.project.category" placeholder='{{ project.project.category }}' /><br>
+
+
+    <label for="yaer">Any:</label>
+    <input type="number" name="year" [(ngModel)]="project.project.year" placeholder='{{ project.project.year }}'/><br>
+
+    
+    <label for="lang">Llenguatge Utilitzats:</label>
+    <input type="text" name="lang" [(ngModel)]="project.project.langs" placeholder='{{ project.project.langs }}'/><br>
+
+
+    <label for="image">image del projecte:</label>
+    <img src="{{url+'/get-image/'+project.project.image}}" *ngIf="project.project.image != 'null'" style="width: 100px;">
+    <input type="file" name="image" (change)="fileChangeEvent($event)" /><br>
+    
+    <input type="submit" value="Enviar" [disabled]="!form.form.valid" ><br>
+</form>

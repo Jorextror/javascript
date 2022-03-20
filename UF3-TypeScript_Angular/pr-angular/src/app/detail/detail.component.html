@@ -1,0 +1,10 @@
+<h1>Detail Project</h1>
+
+ <img src="{{url+'/get-image/'+project.project.image}}" *ngIf="project.image != 'null'" style="width: 100px;"> 
+ {{ project.project.name }} 
+ {{ project.project.description }}
+ {{ project.project.category }}
+ {{ project.project.year }}
+
+<button [routerLink]="['/edit/',project.project._id]" >Editar</button>
+<button (click)=deleteProject() >Eliminar</button>

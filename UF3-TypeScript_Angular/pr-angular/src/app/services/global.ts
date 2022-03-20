@@ -1,3 +1,4 @@
 export var Global = {
-    url: 'http://10.42.10.126:3700/api/'
+    // ruta url del node con mongodb (conexion al backend)
+    url: 'http://192.168.1.240:3700/api/'
 };

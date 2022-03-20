@@ -13,44 +13,47 @@ import { UploadService } from 'src/app/services/upload.service';
 })
 export class CreateComponent implements OnInit {
 
-  public title: string;
   public project: Project;
   public project_desat: any;
   public filesToUpload:any;
-  guardat = '';
+  public guardat = '';
 
   constructor(
-    private _projectService: ProjectService, private _uploadService: UploadService
+    private _projectService: ProjectService,  private _uploadService: UploadService
   ) {
-    this.title="Crear Project";
     this.project = new Project('','','','',2020,'','');
 
   }
 
   ngOnInit(): void {
   }
+
   fileChangeEvent(fileInput: any){
+    console.log(fileInput);
+    // obtenemos un array de ficheros para hacer upload de mas de un fichero
+    // pero para nosotros solo hacemos uno
     this.filesToUpload = <Array<File>>fileInput.target.files;
 }
 
   onSubmit(form:any){
     console.log(this.project);
-    this.guardat= "guardat correctament ";//<a href='#'>aqui</a>
+    // del 'projectService' utilitza el metode saveProject para el objecto 'project' creado arriba
     this._projectService.saveProject(this.project).subscribe(
       response => {
-        this.project_desat= response;
+        this.project_desat= response;// recogemos les dades
+        // si no esta vacio la id es que el projecto a sido subido
         if (this.project_desat.project._id !=""){
           console.log(this.project_desat);
           console.log(this.project_desat.project._id);
           this._uploadService.makeFileRequest(
-            Global.url+'upload-image/'+this.project_desat.project._id,
+            Global.url+'upload-image/'+this.project_desat.project._id, //ruta de lbackend
             [],
-            this.filesToUpload,
-            'image'
+            this.filesToUpload, // array de ficheros que subimos
+            'image' // Nombre del campo que recive el campo en el modelo del backend "image" 
           ).then((result:any)=>{
             console.log(result);
           });
-          
+          this.guardat= "guardat correctament ";
           form.reset();
         }
       },
