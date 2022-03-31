@@ -20,7 +20,7 @@
     <label for="lang">Llenguatge Utilitzats:</label>
     <input type="text" name="lang" [(ngModel)]="project.langs"required /><br>
 
-
+    <!-- (change) llama al metode cuando detecta cambios -->
     <label for="image">image del projecte:</label>
     <input type="file" name="image" (change)="fileChangeEvent($event)" /><br>
     

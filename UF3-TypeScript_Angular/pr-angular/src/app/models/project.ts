@@ -1,3 +1,4 @@
+//camps de la BBDD
 export class Project{
     constructor(
         public _id:string,
