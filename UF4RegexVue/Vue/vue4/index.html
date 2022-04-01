@@ -23,14 +23,14 @@
          -->
       <input type="text" v-on:input="keydowns" />
       
-      <p class="{{nom}}" >
-        {{ nom }}
-      </p>
-
-      <div class="classe1" @click="styled('A')">a</div>
-      <div class="classe1" @click="styled('B')">a</div>
-
-      <button v-on:click="styled()">Toggle Paragraph</button>
+      <div :class="cambio">
+        <p :class="nom">
+          {{ nom }}
+        </p>  
+      </div>
+      
+      <br>
+      <button v-on:click="cambiar()">Toggle Paragraph</button>
       <!-- 2) 
               utilitza 2 classes, hidden i visible i cada vegada que es prem el botó toogle paragraf 
               s'ha de mostrar el paràgraf o no
@@ -38,3 +38,4 @@
     </section>
   </body>
 </html>
+  

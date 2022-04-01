@@ -2,17 +2,20 @@ Vue.createApp({
     data(){
         return{
             nom:"",
-            classe1:false,
-            classe2:false,
+            cambio:"visible"
         }
     },
     methods:{
         keydowns(event) {
             this.nom =event.target.value
         },
-        styled(box){
-            if (box==='A') this.classe1=true,this.classe2=false
-            else if (box==='B') this.classe2=true,this.classe1=false
+        cambiar(){
+            if (this.cambio == "visible"){
+                this.cambio="hidden"
+            }else{
+                this.cambio="visible"
+            }
+            //no interviene el usuario asi que no creo que haga falta un elif
         }
     }
 }).mount('#assignment')
