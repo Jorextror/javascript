@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-<h1>projects</h1>
-
-=======
 <h1>Projects</h1>
 <!-- [routerLink] es como el href para angular que a mas de redirigirte captura el valor id para mostrar el proyecto -->
 <ul *ngFor="let project of projects" class="list-group">
@@ -10,4 +6,3 @@
         <li class="list-group-item" > {{ project.category }} </li>
         <li class="list-group-item" ><a [routerLink]="['/detail/',project._id]" >Detail</a></li>
 </ul>
->>>>>>> 4ee3484087452338d65cddf713a80df9d1c6abd5
